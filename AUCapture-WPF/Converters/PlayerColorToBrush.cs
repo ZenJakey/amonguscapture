@@ -22,7 +22,15 @@ namespace AUCapture_WPF.Converters
             { PlayerColor.Purple,  new SolidColorBrush(Color.FromRgb(107, 47, 187))},
             { PlayerColor.Brown,   new SolidColorBrush(Color.FromRgb(113, 73, 30))},
             { PlayerColor.Cyan,    new SolidColorBrush(Color.FromRgb(56, 254, 220))},
-            { PlayerColor.Lime,     new SolidColorBrush(Color.FromRgb(80, 239, 57))}
+            { PlayerColor.Lime,     new SolidColorBrush(Color.FromRgb(80, 239, 57))},
+            { PlayerColor.Watermelon,     new SolidColorBrush(Color.FromRgb(168, 50, 62))},
+            { PlayerColor.Chocolate,     new SolidColorBrush(Color.FromRgb(60, 48, 44))},
+            { PlayerColor.SkyBlue,     new SolidColorBrush(Color.FromRgb(61, 129, 255))},
+            { PlayerColor.Beige,     new SolidColorBrush(Color.FromRgb(240, 211, 165))},
+            { PlayerColor.HotPink,     new SolidColorBrush(Color.FromRgb(236, 61, 255))},
+            { PlayerColor.Turquoise,     new SolidColorBrush(Color.FromRgb(61, 255, 181))},
+            { PlayerColor.Lilac,     new SolidColorBrush(Color.FromRgb(186, 161, 255))},
+            { PlayerColor.Rainbow,     new SolidColorBrush(Color.FromRgb(0, 0, 0))}
 
         };
 
@@ -62,7 +70,15 @@ namespace AUCapture_WPF.Converters
             { PlayerColor.Purple,  new SolidColorBrush(Color.FromRgb(107, 47, 187))},
             { PlayerColor.Brown,   new SolidColorBrush(Color.FromRgb(113, 73, 30))},
             { PlayerColor.Cyan,    new SolidColorBrush(Color.FromRgb(56, 254, 220))},
-            { PlayerColor.Lime,     new SolidColorBrush(Color.FromRgb(80, 239, 57))}
+            { PlayerColor.Lime,     new SolidColorBrush(Color.FromRgb(80, 239, 57))},
+            { PlayerColor.Watermelon,     new SolidColorBrush(Color.FromRgb(168, 50, 62))},
+            { PlayerColor.Chocolate,     new SolidColorBrush(Color.FromRgb(60, 48, 44))},
+            { PlayerColor.SkyBlue,     new SolidColorBrush(Color.FromRgb(61, 129, 255))},
+            { PlayerColor.Beige,     new SolidColorBrush(Color.FromRgb(240, 211, 165))},
+            { PlayerColor.HotPink,     new SolidColorBrush(Color.FromRgb(236, 61, 255))},
+            { PlayerColor.Turquoise,     new SolidColorBrush(Color.FromRgb(61, 255, 181))},
+            { PlayerColor.Lilac,     new SolidColorBrush(Color.FromRgb(186, 161, 255))},
+            { PlayerColor.Rainbow,     new SolidColorBrush(Color.FromRgb(0, 0, 0))}
 
         };
 
