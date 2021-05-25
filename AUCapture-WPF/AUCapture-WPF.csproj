@@ -62,6 +62,7 @@
 
   <ItemGroup>
     <EmbeddedResource Include="Resources\AutoMuteUs_PK.asc" />
+    <Resource Include="Resources\Misc\rainbow.png" />
   </ItemGroup>
 
   <ItemGroup>

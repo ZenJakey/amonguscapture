@@ -1,16 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Threading;
 using System.Windows;
 using System.Windows.Data;
 using System.Windows.Media;
+using System.Windows.Media.Imaging;
 using AmongUsCapture;
+using NLog.Fluent;
 
 namespace AUCapture_WPF.Converters
 {
     public class PlayerColorToBrush : IValueConverter
     {
-        private static readonly Dictionary<PlayerColor, SolidColorBrush> BrushMapping = new() {
+        private static Dictionary<PlayerColor, Brush> BrushMapping = new() {
             { PlayerColor.Red,     new SolidColorBrush(Color.FromRgb(197, 17, 17))},
             { PlayerColor.Blue,    new SolidColorBrush(Color.FromRgb(19, 46, 209))},
             { PlayerColor.Green,   new SolidColorBrush(Color.FromRgb(17, 127, 45))},
@@ -30,10 +33,10 @@ namespace AUCapture_WPF.Converters
             { PlayerColor.HotPink,     new SolidColorBrush(Color.FromRgb(236, 61, 255))},
             { PlayerColor.Turquoise,     new SolidColorBrush(Color.FromRgb(61, 255, 181))},
             { PlayerColor.Lilac,     new SolidColorBrush(Color.FromRgb(186, 161, 255))},
-            { PlayerColor.Rainbow,     new SolidColorBrush(Color.FromRgb(0, 0, 0))}
+            { PlayerColor.Rainbow,     new ImageBrush(new BitmapImage(new Uri($"pack://application:,,,/Resources/Misc/rainbow.png")))}
 
         };
-
+        
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
              var color = value as PlayerColor? ?? PlayerColor.Red;
@@ -58,7 +61,7 @@ namespace AUCapture_WPF.Converters
             return Color.FromArgb(255, (byte) R, (byte) G, (byte) B);
         }
 
-        private static readonly Dictionary<PlayerColor, SolidColorBrush> BrushMapping = new() {
+        private static Dictionary<PlayerColor, Brush> BrushMapping = new() {
             { PlayerColor.Red,     new SolidColorBrush(Color.FromRgb(197, 17, 17))},
             { PlayerColor.Blue,    new SolidColorBrush(Color.FromRgb(19, 46, 209))},
             { PlayerColor.Green,   new SolidColorBrush(Color.FromRgb(17, 127, 45))},
@@ -78,14 +81,17 @@ namespace AUCapture_WPF.Converters
             { PlayerColor.HotPink,     new SolidColorBrush(Color.FromRgb(236, 61, 255))},
             { PlayerColor.Turquoise,     new SolidColorBrush(Color.FromRgb(61, 255, 181))},
             { PlayerColor.Lilac,     new SolidColorBrush(Color.FromRgb(186, 161, 255))},
-            { PlayerColor.Rainbow,     new SolidColorBrush(Color.FromRgb(0, 0, 0))}
+            { PlayerColor.Rainbow,     new ImageBrush(new BitmapImage(new Uri($"pack://application:,,,/Resources/Misc/rainbow.png")))}
 
         };
 
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             var color = value as PlayerColor? ?? PlayerColor.Red;
-            var mainColor = BrushMapping[color];
+            if (color == PlayerColor.Rainbow) {
+                return  new ImageBrush(new BitmapImage(new Uri($"pack://application:,,,/Resources/Misc/rainbow.png")));
+            }
+            var mainColor = (SolidColorBrush) BrushMapping[color];
             var shaded = shadeColor(mainColor.Color, -20f);
             return new SolidColorBrush(shaded);
         }
