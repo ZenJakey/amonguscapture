@@ -572,6 +572,32 @@ namespace AUCapture_WPF {
                 case PlayerColor.Sunset:
                     OutputCode = Color.LightCoral;
                     break;
+                case PlayerColor.Watermelon:
+                    OutputCode = Color.DarkRed;
+                    break;
+                case PlayerColor.Chocolate:
+                    OutputCode = Color.Chocolate;
+                    break;
+                case PlayerColor.Skyblue:
+                    OutputCode = Color.SkyBlue;
+                    break;
+                case PlayerColor.Beige:
+                    OutputCode = Color.Beige;
+                    break;
+                case PlayerColor.Hotpink:
+                    OutputCode = Color.HotPink;
+                    break;
+                case PlayerColor.Turquoise:
+                    OutputCode = Color.Turquoise;
+                    break;
+                case PlayerColor.Lilac:
+                    OutputCode = Color.FromArgb(100,186,161,255);
+                    break;
+                case PlayerColor.Rainbow:
+                    break;
+                case PlayerColor.Azure:
+                    OutputCode = Color.Azure;
+                    break;
             }
 
             return OutputCode;

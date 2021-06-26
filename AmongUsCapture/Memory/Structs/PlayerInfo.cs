@@ -18,6 +18,7 @@ namespace AmongUsCapture
         public IntPtr Tasks;
         public bool IsImpostor;
         public bool IsDead;
+        public uint realColorID;
         public IntPtr _object; //Assume this always has largest offset
         public PlayerInfo(IntPtr baseAddr, ProcessMemory MemInstance, GameOffsets CurrentOffsets) {
             unsafe {
@@ -32,6 +33,11 @@ namespace AmongUsCapture
                     PlayerId = Marshal.ReadByte(buffptr, pOf.PlayerIDOffset);
                     var NamePTR = MemInstance.is64Bit ? (IntPtr) Marshal.ReadInt64(buffptr, pOf.PlayerNameOffset) : (IntPtr) Marshal.ReadInt32(buffptr, pOf.PlayerNameOffset);
                     PlayerName = NamePTR == IntPtr.Zero ? "" : MemInstance.ReadString(NamePTR, CurrentOffsets.StringOffsets[0], CurrentOffsets.StringOffsets[1]);
+                    var ColorIdNum = (PlayerColor)(uint)Marshal.ReadInt32(buffptr, pOf.ColorIDOffset);
+                    realColorID = (uint)Marshal.ReadInt32(buffptr, pOf.ColorIDOffset);;
+                    if (Enum.IsDefined(typeof(PlayerColor), ColorIdNum)) {
+                        ColorId = (PlayerColor) ColorIdNum;
+                    }
                     ColorId = (PlayerColor)(uint)Marshal.ReadInt32(buffptr, pOf.ColorIDOffset);
                     HatId = (uint) Marshal.ReadInt32(buffptr, pOf.HatIDOffset);
                     PetId = (uint) Marshal.ReadInt32(buffptr, pOf.PetIDOffset);
