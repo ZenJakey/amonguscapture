@@ -175,7 +175,7 @@ namespace AmongUsCapture {
                 else {
                     // player was here before, we have an old playerInfo to compare against
                     var oldPlayerInfo = oldPlayers[player.GetPlayerName()];
-                    if (!oldPlayerInfo.GetIsDead() != player.GetIsDead()) // player death status changed
+                    if (oldPlayerInfo.GetIsDead() != player.GetIsDead()) // player death status changed
                         PlayerChanged?.Invoke(this, new PlayerChangedEventArgs {
                             Action = PlayerAction.Died,
                             Name = player.GetPlayerName(),
