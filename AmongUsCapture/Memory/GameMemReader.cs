@@ -175,7 +175,7 @@ namespace AmongUsCapture {
                 else {
                     // player was here before, we have an old playerInfo to compare against
                     var oldPlayerInfo = oldPlayers[player.GetPlayerName()];
-                    if (!oldPlayerInfo.GetIsDead() && player.GetIsDead()) // player just died
+                    if (!oldPlayerInfo.GetIsDead() != player.GetIsDead()) // player death status changed
                         PlayerChanged?.Invoke(this, new PlayerChangedEventArgs {
                             Action = PlayerAction.Died,
                             Name = player.GetPlayerName(),
@@ -328,10 +328,10 @@ namespace AmongUsCapture {
                             impostorCount = GetPlayers(ProcessMemory.getInstance()).Count(x => x.GetIsImposter() && x.PlayerName != "" && x.PlayerId != exiledPlayer.PlayerId && !x.GetIsDead() && !x.GetIsDisconnected());
                             innocentCount = GetPlayers(ProcessMemory.getInstance()).Count(x => !x.GetIsImposter() && x.PlayerName != "" && x.PlayerId != exiledPlayer.PlayerId && !x.GetIsDead() && !x.GetIsDisconnected());
 
-                            if (impostorCount == 0 || impostorCount >= innocentCount) {
-                                exileCausesEnd = true;
-                                state = GameState.LOBBY;
-                            }
+                            //if (impostorCount == 0 || impostorCount >= innocentCount) {
+                            //    exileCausesEnd = true;
+                            //    state = GameState.LOBBY;
+                            //}
                         }
                         
                     }
